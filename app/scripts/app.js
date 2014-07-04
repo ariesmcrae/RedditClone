@@ -1,35 +1,26 @@
-(function(){
+/**
+ * @ngdoc overview
+ * @name redditCloneApp
+ * @description
+ * # redditCloneApp
+ *
+ * Main module of the application.
+ */
 
-	'use strict';
+'use strict';
+/* global app:true */
 
-	/**
-	 * @ngdoc overview
-	 * @name redditCloneApp
-	 * @description
-	 * # redditCloneApp
-	 *
-	 * Main module of the application.
-	 */
-	angular.module('redditCloneApp', ['ngAnimate', 'ngCookies', 'ngResource', 'ngRoute', 'ngSanitize', 'ngTouch'])
-		.config(function ($routeProvider) {
-			$routeProvider
-			  .when('/', {
-				templateUrl: 'views/main.html',
-				controller: 'MainCtrl'
-			  })
+var app = angular.module('redditCloneApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute']);
 
-			  .when('/about', {
-				templateUrl: 'views/about.html',
-				controller: 'AboutCtrl'
-			  })
+app.config(function ($routeProvider) {
+	$routeProvider
+		.when('/', {
+			templateUrl: 'views/posts.html',
+			controller: 'PostsCtrl'
+		})
 
-			  .otherwise({
-				redirectTo: '/'
-			  });
-	  });
-
-
-
-
-}());
+		.otherwise({
+			redirectTo: '/'
+		});
+});
 
