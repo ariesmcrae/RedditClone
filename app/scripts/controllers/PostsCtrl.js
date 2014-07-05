@@ -3,28 +3,23 @@
 	/* global app:true */
 
 	var PostsCtrl = function ($scope, PostFactory) {
-		$scope.post = {url: 'http://', title: ''};
-		$scope.posts = PostFactory.get();
+		$scope.post = {url: 'http://', title: ''}; //initial values
+
+		$scope.posts = PostFactory.all;
 
 
 		$scope.submitPosts = function () {
-			PostFactory.save($scope.post, function (postId) {
-				// PostFactory.save(post) will save to firebase, but nothing happens when we refresh screen,
-				// but PostFactory.save(post, function...) is a success callback with postId - the ID of the saved post,
-				// enabling us to display saved data without refreshing the screen.
-				// We will no longer identify objects by their ng-repeat $index, as Firebase gives each object a unique ID (postId)
-				// for us to easily update & delete it from the server.
-				$scope.posts[postId.name] = $scope.post;
-				$scope.post = {url: 'http://', title: ''}; //reset fields after posting.
+			PostFactory.create($scope.post).then(function () {
+				//this is a success promise callback when sucessfully persisted post in firebase, so let's reset the fields.
+				//This is 3 way data binding. No need to update $scope.posts.
+				$scope.post = {url: 'http://', title: ''};
 			});
 		}; //submit
 
 
 		$scope.deletePost = function (postId) {
-			PostFactory.delete({id: postId}, function () {
-				delete $scope.posts[postId];
-			});
-		}; //deletePost
+			PostFactory.delete(postId);
+		};
 
 	}; //ctrl
 

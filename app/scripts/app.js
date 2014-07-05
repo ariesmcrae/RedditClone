@@ -8,7 +8,9 @@
  */
 
 /* global app:true */
-var app = angular.module('redditCloneApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute']);
+var app = angular.module('redditCloneApp', ['ngCookies', 'ngResource', 'ngSanitize', 'ngRoute', 'firebase']);
+
+app.constant('FIREBASE_URL', 'https://crackling-fire-8289.firebaseio.com/');
 
 app.config(function ($routeProvider) {
 	'use strict';
@@ -22,4 +24,6 @@ app.config(function ($routeProvider) {
 			redirectTo: '/'
 		});
 });
+
+
 
