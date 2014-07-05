@@ -1,4 +1,4 @@
-<div ng-repeat="post in posts">
+<div ng-repeat="(postId, post) in posts">
 	<a href="{{ post.url }}">{{ post.title }}</a>
 	<!--We are using the variable name 'post' in this ng-repeat.
         Our controller also has a variable called '$scope.post' as well.
@@ -8,7 +8,7 @@
  		ng-repeat to create a new post object for every item in the array
     -->
 
-	<a ng-click="deletePost($index)">delete</a><!--ng-repeat has a variable named '$index' that holds the index of the current object in the data set -->
+	<a ng-click="deletePost(postId)">delete</a>
 </div>
 
 
