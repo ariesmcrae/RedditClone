@@ -1,23 +1,15 @@
 <div ng-repeat="(postId, post) in posts">
-	<a href="{{ post.url }}">{{ post.title }}</a>
-	<!--We are using the variable name 'post' in this ng-repeat.
-        Our controller also has a variable called '$scope.post' as well.
-		However, there will not be a clash, because ng-repeat creates a new scope
-		for each element it creates, so u don't have to worry about the controller's
-		$scope.post clashing with 'ng-repeat post'.
- 		ng-repeat to create a new post object for every item in the array
-    -->
-
-	<a ng-click="deletePost(postId)">delete</a>
+  <a href="{{ post.url }}">{{ post.title }}</a>
+  <a href="#/posts/{{ postId }}">comments</a>
+  <a ng-click="deletePost(postId)">delete</a>
 </div>
 
-
-<form ng-submit="submitPosts()">
-	<input type="text" ng-model="post.url">
-	<input type="text" ng-model="post.title">
-	<input type="submit" value="Add Post">
+<form ng-submit="submitPost()">
+  <input type="text" ng-model="post.title" />
+  <input type="text" ng-model="post.url" />
+  <input type="submit" value="Add Post" />
 </form>
 
-<br/><br/>
-Posts: {{ posts }}<br/>
+<br/><br>
+Posts: {{ posts }}<br />
 Post: {{ post }}
