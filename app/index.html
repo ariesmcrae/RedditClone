@@ -2,7 +2,7 @@
 <html class="no-js">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Reddit Clone</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -21,28 +21,9 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container">
 
-		<header class="header">
-			<ul class="nav nav-pills pull-right">
-			  <li class="active"><a ng-href="#">Home</a></li>
-			  <li><a ng-href="#/about">About</a></li>
-			  <li><a ng-href="#">Contact</a></li>
-			</ul>
-
-			<h3 class="text-muted">RedditClone</h3>
-		</header>
-
-      	<div ng-view=""></div>
-
-
-		<footer class="footer">
-			<p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-		</footer>
-
-
-
-    </div>
+    <div ng-include="'views/nav.html'"></div>
+    <div class="container" ng-view=""></div>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -83,7 +64,9 @@
         <script src="scripts/app.js" type="application/javascript"></script>
         <script src="scripts/controllers/PostsCtrl.js" type="application/javascript"></script>
         <script src="scripts/controllers/PostViewCtrl.js" type="application/javascript"></script>
+        <script src="scripts/controllers/NavCtrl.js" type="application/javascript"></script>
         <script src="scripts/services/PostFactory.js" type="application/javascript"></script>
+        <script src="scripts/filters/HostnameFromUrlFilter.js" type="application/javascript"></script>
         <!-- endbuild -->
 </body>
 </html>
