@@ -6,12 +6,14 @@ A Reddit clone written in AngularJS
 ##Pre-requisites
 * NodeJs
 * Npm
-* Grunt
 * Bower
-* Karma
+
 
 ##How to run
 * Clone this repo.
-* From the command line, execute 'npm install'
-* Execute 'grunt serve'
-* launch localhost:9000
+* Install bower: `sudo npm install -g bower`
+* Execute `bower install`
+* Execute `sudo npm install`
+* Execute `grunt serve`
+
+Your browser will be then be automatically launched and be pointed to localhost:9000
